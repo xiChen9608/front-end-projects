@@ -18,15 +18,16 @@ export default createStore({
     ]
   },
   mutations: {
-    addTodo(state,payload){
-      state.list.push(payload);
+    //添加Todolist
+    addTodo(state, payload){
+      return state.list.push(payload);
     },
-    //删除任务 splice(下标，个数)
-    delTodo(state,payload){
-      state.list.splice(payload,1);
+    //删除Todolist
+    delTodo(state, payload){
+      return state.list.splice(payload,1);
     },
-    clearTodo(state,payload){
-      //讲过滤的数组传进来
+    //清除已完成的Todolist
+    clearTodo(state, payload){
       state.list = payload;
     }
   },

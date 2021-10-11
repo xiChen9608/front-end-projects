@@ -1,8 +1,7 @@
 <template>
-  <navHeader></navHeader>
-  <navMain></navMain>
-  <navFooter></navFooter>
-  {{list}}
+  <navHeader @add='add'></navHeader>
+  <navMain :list='list' @del="del"></navMain>
+  <navFooter :list='list' @clear="clear"></navFooter>
 </template>
 
 <script>
@@ -25,7 +24,36 @@ export default {
     let list = computed(()=>{
       return store.state.list;
     })
-    return {list}
+
+
+    //添加任务
+    let add = (val) =>{
+      let flag = true;
+      list.value.map((item)=>{
+        if(item.title === val){
+          flag = false;
+          alert("任务已存在");
+        }
+      })
+      if(flag){
+        store.commit('addTodo',{
+        title: val,
+        complete: false
+      })
+      }
+    }
+
+    //删除任务
+    let del = (val) => {
+      store.commit('delTodo',val);
+    }
+
+    //清除任务
+    let clear = (val)=>{
+      store.commit('clearTodo',val);
+    }
+
+    return {add, list, del, clear}
   },
 }
 </script>

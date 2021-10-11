@@ -13,11 +13,15 @@ import { ref } from "vue";
 
 export default {
   name: "navHeader",
-  setup() {
+  setup(props, ctx) {
     let message = ref("");
 
+    // 按回车确认
     let getMessage = () => {
-      console.log(message.value);
+      // 将输入框的内容传递给父组件
+      ctx.emit('add', message.value);
+      //清空输入框
+      message.value = '';
     };
     return { message, getMessage };
   },
