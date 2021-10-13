@@ -121,6 +121,7 @@ a:hover {
 }
 .detailLinks {
     display: flex;
+    flex-wrap: wrap;
 }
 .item:nth-of-type(1){
   color: #000;
