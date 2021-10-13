@@ -1,7 +1,7 @@
 <template>
   <el-card class="box-card">
     <el-row>
-      <el-col :span="8" class="card-l">
+      <el-col :xs="24" :sm="8" class="card-l">
         <div class="me_img"><img src="../../assets/img/img.jpg" /></div>
         <h4>Xi Chen (陈茜)</h4>
         <p style="color: darkgrey">Master student</p>
@@ -17,7 +17,7 @@
         </div>
       </el-col>
 
-      <el-col :span="16" class="card-r">
+      <el-col :xs="24" :sm="16" class="card-r">
         <h4 style="text-decoration: underline">About Me</h4>
         <p style="line-height: 1.8">
           Xi Chen (陈茜), a master student in the Department of Computer
@@ -91,34 +91,6 @@ export default {
   margin: 0 auto;
 }
 
-.card-l .me_img {
-  padding-top: 5%;
-}
-.card-l .me_img img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-}
-.concat_img {
-  padding-top: 5%;
-}
-.concat_img img {
-  width: 30px;
-  height: 30px;
-  margin: 0px 5px 0px 5px;
-}
-
-.card-r {
-  text-align: left;
-}
-p,
-.school {
-  font-size: 15px;
-}
-.el-timeline {
-  font-size: 15px;
-}
-
 a {
   color: #337ab7;
   text-decoration-line: none;
@@ -128,4 +100,48 @@ a:hover{
   color: #23527c;
   text-decoration: underline;
 }
+.card-r {
+  text-align: left;
+}
+p,
+.school {
+  font-size: 15px;
+}
+.el-timeline {
+  font-size:15px;
+}
+@media screen and (max-width: 3000px) and (min-width: 768px) { 
+  .card-l .me_img {
+    padding-top: 5%;
+  }
+  .card-l .me_img img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+  .concat_img {
+    padding-top: 5%;
+  }
+  .concat_img img {
+    width: 30px;
+    height: 30px;
+    margin: 0px 5px 0px 5px;
+  }
+}
+
+ @media screen and (max-width:767px) and (min-width: 100px){
+  .card-l .me_img img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+  .el-col:nth-of-type(1) h4, .el-col:nth-of-type(1) p,.el-col:nth-of-type(1) a, .concat_img {
+    display: none;
+  }
+
+  .el-col h4 {
+    text-align: left;
+  }
+
+ }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <el-card class="box-card" >
+  <el-card class="box-card">
     <h4 style="text-decoration: underline">Publications</h4>
     <div class="block">
       <el-timeline>
@@ -11,12 +11,12 @@
         >
           <el-card>
             <el-row>
-              <el-col :span="8" class="imgContainer">
+              <el-col :xs="24" :sm="8" class="imgContainer">
                 <div class="imgBox">
                   <img :src="item.url" />
                 </div>
               </el-col>
-              <el-col :span="16" class="detailContainer">
+              <el-col :xs="24" :sm="16" class="detailContainer">
                 <div class="item">
                   {{ item.title }}
                 </div>
@@ -103,29 +103,6 @@ export default {
   width: 90%;
   margin: 20px auto;
 }
-.publicaions {
-  font-size: 15px;
-  text-align: left;
-}
-.imgBox {
-  width: 250px;
-  height: 150px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-}
-
-.imgBox img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover;
-  border: 2px lightgrey solid;
-}
-
-.item {
-  margin: 0px 0px;
-  line-height: 1.8;
-}
 a {
   color: #337ab7;
   text-decoration-line: none;
@@ -137,7 +114,55 @@ a:hover {
   text-decoration: underline;
   cursor: pointer;
 }
+.item {
+  margin: 0px 0px;
+  line-height: 1.8;
+  text-align: left;
+}
 .detailLinks {
-  display: flex;
+    display: flex;
+}
+.item:nth-of-type(1){
+  color: #000;
+}
+.item:nth-of-type(2){
+  color: #555;
+}
+.item:nth-of-type(3){
+  color: #808080;
+  font-style: italic;
+}
+@media screen and (max-width: 3000px) and (min-width: 768px) {
+
+  .publicaions {
+    font-size: 15px;
+    text-align: left;
+  }
+  .imgBox {
+    width: 250px;
+    height: 150px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  .imgBox img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border: 2px lightgrey solid;
+  }
+}
+@media screen and (max-width: 767px) and (min-width: 100px) {
+  h4{
+    text-align: left;
+  }
+
+  .imgBox{
+    width: 100%;
+  }
+  .imgBox img{
+    max-width: 100%;
+  }
 }
 </style>
